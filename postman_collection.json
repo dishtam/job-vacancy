@@ -1,0 +1,42 @@
+{
+  "info": {
+    "name": "Job Portal API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create Company",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{ \"name\": \"TestCorp\", \"email\": \"corp@test.com\" }" },
+        "url": { "raw": "http://localhost:8080/api/v1/companies", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "v1", "companies"] }
+      }
+    },
+    {
+      "name": "Post Vacancy",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{ \"title\": \"Backend Engineer\", \"description\": \"Spring Boot dev\", \"location\": \"Remote\", \"company\": {\"id\":1} }" },
+        "url": { "raw": "http://localhost:8080/api/v1/vacancies", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "v1", "vacancies"] }
+      }
+    },
+    {
+      "name": "Get Vacancies",
+      "request": {
+        "method": "GET",
+        "url": { "raw": "http://localhost:8080/api/v1/vacancies", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "v1", "vacancies"] }
+      }
+    },
+    {
+      "name": "Upload Resume",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "multipart/form-data" }],
+        "body": { "mode": "formdata", "formdata": [{ "key": "file", "type": "file", "src": "/path/to/resume.pdf" }] },
+        "url": { "raw": "http://localhost:8080/api/v1/candidates/1/resume", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "v1", "candidates", "1", "resume"] }
+      }
+    }
+  ]
+}
